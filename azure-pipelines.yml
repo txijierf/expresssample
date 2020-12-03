@@ -15,6 +15,12 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    ArtifactName: 'drop'
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    publishLocation: 'Container'
+
 - script: |
     npm install
     npm build
