@@ -19,7 +19,7 @@ steps:
   inputs:
     ArtifactName: 'drop'
     targetPath: '$(Build.ArtifactStagingDirectory)'
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/**/'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'Container'
 
 - script: |
