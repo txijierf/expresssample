@@ -20,13 +20,12 @@ steps:
     sourceFolder: $(Build.SourcesDirectory)
     targetFolder: $(Build.ArtifactStagingDirectory)
 
+- script: |
+    npm install
+    npm build
+  displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'drop'
     targetPath: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'Container'
-
-- script: |
-    npm install
-    npm build
-  displayName: 'npm install and build'
