@@ -15,11 +15,15 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: $(Build.SourcesDirectory)
+    targetFolder: $(Build.ArtifactStagingDirectory)
+
 - task: PublishBuildArtifacts@1
   inputs:
     ArtifactName: 'drop'
     targetPath: '$(Build.ArtifactStagingDirectory)'
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     publishLocation: 'Container'
 
 - script: |
